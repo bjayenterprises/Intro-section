@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Portfolio | Hero Section</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Main navigation">
+      <a class="logo" href="#" aria-label="Your Name home">Your<span>Name</span></a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false"
+        aria-controls="primary-navigation" aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="primary-navigation">
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <p class="eyebrow">WELCOME TO MY PORTFOLIO</p>
+        <p class="intro">Hi, I'm</p>
+        <h1 id="hero-title">Your <span>Name</span></h1>
+        <h2>Web Developer <span class="divider">|</span> SEO Content Writer</h2>
+        <p class="hero-description">
+          I help businesses build a stronger online presence through
+          thoughtful content and clean, responsive websites. I'm learning,
+          building, and turning ideas into useful digital experiences.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects">View My Projects</a>
+          <a class="button button-secondary" href="#contact">Get In Touch</a>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#about" aria-label="Scroll to the About section">
+        <span></span>
+      </a>
+    </section>
+  </main>
+
+  <script>
+    const menuToggle = document.querySelector(".menu-toggle");
+    const navLinks = document.querySelector(".nav-links");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Open navigation menu" : "Close navigation menu");
+      navLinks.classList.toggle("is-open", !isOpen);
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+      });
+    });
+  </script>
+</body>
+</html>
