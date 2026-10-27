@@ -425,6 +425,7 @@ a {
 
   .about-image img {
     height: 250px;
+    object-view-box: inset(-10%);
   }
 }
 
